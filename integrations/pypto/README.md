@@ -16,7 +16,7 @@ files in the selected checkout as the source of concrete commands and APIs.
 | Need | Owning target-project guidance |
 | --- | --- |
 | Kernel syntax and composition | `docs/pypto-coding/` |
-| Setup and toolchain pins | `.claude/skills/setup-env/SKILL.md`, `docs/get-started/installation.md` |
+| Environment preparation | [`ENVIRONMENT.md`](ENVIRONMENT.md), `.claude/skills/setup-env/SKILL.md`, `docs/get-started/installation.md` |
 | Kernel style | `.claude/skills/fmt-coding-style/SKILL.md` |
 | Numerical execution and comparison | `golden/`, `docs/run-and-validate/golden-harness.md` |
 | Compile and generated artifacts | `docs/run-and-validate/compile-runtime-workflow.md` |
@@ -25,8 +25,10 @@ files in the selected checkout as the source of concrete commands and APIs.
 
 ## Prepare and verify the environment
 
-Use the target checkout's setup skill and installation guide as the executable
-source. Keep the following order and record each step's actual result:
+Follow the detailed [PyPTO environment preparation guide](ENVIRONMENT.md),
+using the target checkout's setup skill and installation guide as the
+authoritative source. Keep the following order and record each step's actual
+result:
 
 1. Inspect the requested simulator or device platform, host architecture,
    Python environment, compilers, existing PyPTO/PTOAS checkouts and exported
