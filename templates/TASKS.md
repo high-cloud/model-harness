@@ -14,6 +14,7 @@ the launcher is not a required reviewer. Record lifecycle limitations accurately
 ## Checklist
 
 - [ ] Model facts and environment inspected
+- [ ] Selected integration environment prepared and recorded; pins, imports and smoke test verified
 - [ ] Concrete specification reviewed and agreed by user
 - [ ] File ownership, goldens, default validation, comparators, and consumers mapped before implementation
 - [ ] Prefill/decode loop nesting, token tiles, and dispatch granularity frozen

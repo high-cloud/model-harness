@@ -9,6 +9,7 @@ Independent semantic references are required; external parent review is not.
 
 | Requirement | Source / artifact | Verification command | Required result |
 | --- | --- | --- | --- |
+| Reproducible execution environment | `ENVIRONMENT.md` | TBD | Selected integration pins, imports and smoke test are verified; deferred device steps remain visible |
 | Complete-model compiled prefill | TBD | TBD | Graph covers embedding, every layer, final norm, and head |
 | Complete-model compiled decode | TBD | TBD | Same coverage; consumes and updates agreed persistent state |
 | Prefill execution structure | TBD | TBD | Multi-token within-layer work; actual loop/shape evidence matches the frozen contract |

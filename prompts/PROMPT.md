@@ -81,8 +81,11 @@ weight metadata, and original-framework forward code. Derive dimensions from
 these sources; do not assume that query width equals hidden size or that all
 layer types have identical parameters or persistent state.
 
-Fill `MODEL_SPEC.md`, `MODULES.md`, `ACCEPTANCE.md`, `WEIGHT_MANIFEST.md`, and
-`SERVING_ABI.md`. Cite source locations for model facts. Propose scope (including
+Fill `ENVIRONMENT.md`, `MODEL_SPEC.md`, `MODULES.md`, `ACCEPTANCE.md`,
+`WEIGHT_MANIFEST.md`, and `SERVING_ABI.md`. Prepare and verify the selected
+integration environment before implementation or expensive device work; record
+dependency pins, actual imports, required roots, smoke results and deferred
+steps in `ENVIRONMENT.md`. Cite source locations for model facts. Propose scope (including
 text-only versus multimodal), one topology/rank mapping, one quantization
 policy, supported shapes, module boundaries, and numerical gates. Estimate
 weight, persistent-state, and scratch memory. Represent unknown facts as unknown.

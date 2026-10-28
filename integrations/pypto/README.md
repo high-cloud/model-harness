@@ -3,7 +3,8 @@
 Use Model Harness alongside a target checkout of
 [pypto-lib](https://github.com/hw-native-sys/pypto-lib). This guide maps generic
 requirements to the project's owning files; it does not duplicate its DSL style
-or provide its runtime, device queue or goal host.
+or provide its runtime, device queue or goal host. Record the result in the
+[environment template](../../templates/ENVIRONMENT.md) before implementation.
 
 ## Read the target checkout
 
@@ -21,6 +22,35 @@ files in the selected checkout as the source of concrete commands and APIs.
 | Compile and generated artifacts | `docs/run-and-validate/compile-runtime-workflow.md` |
 | Compiler/runtime diagnosis | `.claude/rules/problem-handling.md`, `docs/debug-and-tune/debugging.md` |
 | CI entry discovery | `.github/scripts/detect_changes.py`, `.github/ci_platforms.json` |
+
+## Prepare and verify the environment
+
+Use the target checkout's setup skill and installation guide as the executable
+source. Keep the following order and record each step's actual result:
+
+1. Inspect the requested simulator or device platform, host architecture,
+   Python environment, compilers, existing PyPTO/PTOAS checkouts and exported
+   roots. For a device run, verify an allocated device and inspect CANN with
+   `npu-smi info`.
+2. Reuse the selected PyPTO checkout or create a separate checkout without
+   overwriting an existing one. Initialize its submodules and derive the
+   PTOAS release from that checkout's `toolchain/versions.env`.
+3. For a device target, source the selected CANN `set_env.sh` before installing
+   PyPTO's `runtime/` submodule. This lets the simpler build find the required
+   device compilers; sourcing CANN afterwards does not repair an already-built
+   runtime.
+4. Install PyPTO from the selected checkout and simpler from that checkout's
+   `runtime/`. Install the pinned PTOAS release under `PTOAS_ROOT`; do not
+   copy versions from an earlier run. Let simpler resolve the PTO ISA revision
+   from `runtime/pto_isa.pin`.
+5. Verify `pypto`, `torch` and the target golden/reference imports; probe the
+   pinned PTOAS executable with `--version`; verify the simpler and PTO ISA
+   revisions; and confirm `PYTHONPATH` and required roots in the shell that
+   will run the case.
+6. Run the integration's smallest `hello_world`-style simulator smoke test or
+   an allocated-device smoke test. A simulator pass does not close a device
+   requirement. Report network installation, CANN activation, device
+   execution, or PTO ISA resolution as deferred when they were not performed.
 
 Supply the installed `task-submit` skill or the environment's documented queue
 workflow for every NPU execution. Do not run hardware jobs directly or invent

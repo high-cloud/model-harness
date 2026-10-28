@@ -15,7 +15,7 @@ the target project. A completed checklist alone is not execution evidence.
 1. Read the target project's agent instructions and [model rules](rules/models.md).
 2. Select the project integration; [PyPTO](integrations/pypto/README.md) is the
    first supported integration guide.
-3. Copy all six [templates](#templates) into a local experiment directory in the
+3. Copy all seven [templates](#templates) into a local experiment directory in the
    target project. Supply checkpoint, project, environment and artifact paths in
    local inputs; keep checkpoints read-only.
 4. Give the launched agent the [main prompt](prompts/PROMPT.md), the absolute
@@ -36,6 +36,9 @@ are intentional; fill them before accepting an implementation. See the
 
 - Before implementation, map operator ownership, goldens, default validation,
   comparators and actual composition consumers.
+- Before implementation or expensive device work, prepare and record the
+  selected integration environment, including dependency pins, imports and a
+  smoke test. A simulator check does not establish a device environment.
 - On the first working attention and MoE/feed-forward paths, inspect dependencies,
   call depth, phase shapes and validation-to-composition symbol identity before
   scaling the full model. Repeat for distinct hybrid mixers.
@@ -59,6 +62,7 @@ an explicit scope extension and additional checks.
 | [MODEL_SPEC.md](templates/MODEL_SPEC.md) | Model facts, scope, topology and execution contract |
 | [MODULES.md](templates/MODULES.md) | Ownership, tensor contracts, consumers and first-path checks |
 | [ACCEPTANCE.md](templates/ACCEPTANCE.md) | Engineering, structural, numerical and generation gates |
+| [ENVIRONMENT.md](templates/ENVIRONMENT.md) | Reproducible environment preparation and verification record |
 | [WEIGHT_MANIFEST.md](templates/WEIGHT_MANIFEST.md) | Checkpoint conversion and complete destination mapping |
 | [SERVING_ABI.md](templates/SERVING_ABI.md) | Future serving call and persistent-state contract |
 | [TASKS.md](templates/TASKS.md) | Execution evidence, open findings and goal closeout |

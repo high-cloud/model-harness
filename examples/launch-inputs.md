@@ -8,7 +8,7 @@ commit machine-specific input files.
 HARNESS_ROOT=<local model-harness checkout>
 PROJECT_ROOT=<target model repository>
 INTEGRATION=integrations/pypto/README.md
-EXPERIMENT_DIR=<local experiment directory containing six copied templates>
+EXPERIMENT_DIR=<local experiment directory containing seven copied templates>
 MODEL_ROOT=<read-only checkpoint directory>
 MODEL_ID=<checkpoint identity and revision>
 ENVIRONMENT=<selected project environment>
